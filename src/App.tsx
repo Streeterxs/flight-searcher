@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
+import { Layout } from './Components/Layout';
 
 function App() {
 
@@ -8,7 +9,9 @@ function App() {
     <div>
 
       <BrowserRouter>
-        <Routes/>
+        <Layout>
+          <Routes/>
+        </Layout>
       </BrowserRouter>
     </div>
   );

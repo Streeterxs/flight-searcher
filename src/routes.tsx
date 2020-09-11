@@ -1,9 +1,11 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
+import { LandingPage } from './Pages';
+
 const Routes = () => (
     <Switch>
-        <Route path="/" exact component={() => <div>Landing Page!</div>}/>
+        <Route path="/" exact component={LandingPage}/>
     </Switch>
 );
 
