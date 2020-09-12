@@ -1,20 +1,33 @@
-import React, { useEffect } from 'react';
-
-import { flightTypes } from '../../flightTypes';
+import React, { useEffect, useState, useCallback } from 'react';
 
 type FormProps = {
-    formChanges: {
-        setFlightType: React.Dispatch<React.SetStateAction<flightTypes | null>>;
-        setFlightOrigin: React.Dispatch<React.SetStateAction<string | null>>;
-        setFlightDestiny: React.Dispatch<React.SetStateAction<string | null>>;
-        setFlightDate: React.Dispatch<React.SetStateAction<Date | null>>;
-        setPersonNumber: React.Dispatch<React.SetStateAction<number | null>>;
-    }
-}
+    setFlightData: React.Dispatch<React.SetStateAction<formResult | null>>;
+};
+
+type formResult = {
+    origem: string;
+    destino: string;
+    data: string;
+    pessoas: number
+};
 export const Form = ({
-        formChanges
+        setFlightData
     }: FormProps ) => {
 
+    const [origem, setOrigem] = useState<string>('');
+    const [destino, setDestino] = useState<string>('');
+    const [data, setData] = useState<string>('');
+    const [pessoas, setPessoas] = useState<number>(0);
+
+    const formSubmit = () => {
+
+        setFlightData({
+            origem,
+            destino,
+            data,
+            pessoas
+        })
+    }
 
     useEffect(() => {
 
@@ -24,7 +37,7 @@ export const Form = ({
     useEffect(() => {
 
         console.log('[Form] formChanges changed');
-    }, [formChanges]);
+    }, [setFlightData]);
 
     return (
         <form className="px-2">
@@ -45,30 +58,30 @@ export const Form = ({
                 <div className="w-full md:w-1/4 md:pr-4">
 
                     <label className="w-full" htmlFor="origem">Origem</label>
-                    <input onChange={(event) => formChanges.setFlightOrigin(event.target.value)} className="w-full" type="text" id="origem"/>
+                    <input onChange={(event) => {setOrigem(event.target.value)}} className="w-full" type="text" id="origem"/>
                 </div>
 
                 <div className="w-full md:w-1/4 md:pr-4">
 
                     <label className="w-full" htmlFor="destino">Destino</label>
-                    <input className="w-full" type="text" id="destino"/>
+                    <input onChange={(event) => {setDestino(event.target.value)}} className="w-full" type="text" id="destino"/>
                 </div>
 
                 <div className="w-full md:w-1/4 md:pr-4">
 
                     <label className="w-full" htmlFor="data">Data de ida / Retorno</label>
-                    <input className="w-full" type="text" id="data"/>
+                    <input onChange={(event) => {setData(event.target.value)}} className="w-full" type="text" id="data"/>
                 </div>
 
                 <div className="w-full md:w-1/4 md:pr-4">
                     
                     <label className="w-full" htmlFor="pessoas">Número de Pessoas</label>
-                    <input className="w-full" type="text" id="pessoas"/>
+                    <input onChange={(event) => {setPessoas(+event.target.value)}} className="w-full" type="text" id="pessoas"/>
                 </div>
             </div>
 
             <div className="flex items-center justify-end">
-                <button>Busque as Viagens</button>
+                <button onClick={useCallback(formSubmit, [formSubmit])}>Busque as Viagens</button>
             </div>
         </form>
     );

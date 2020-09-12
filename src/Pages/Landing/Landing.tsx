@@ -1,39 +1,26 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 
 import { Form } from './Components';
 import { DataView } from './Components';
-import { flightTypes } from './flightTypes';
 
+type flightData = {
+    origem: string;
+    destino: string;
+    data: string;
+    pessoas: number
+};
 export const Landing = () => {
 
-    const [flightType, setFlightType] = useState<flightTypes | null>(null);
-    const [flightOrigin, setFlightOrigin] = useState<string | null>(null);
-    const [flightDestiny, setFlightDestiny] = useState<string | null>(null);
-    const [flightDate, setFlightDate] = useState<Date | null>(null);
-    const [personNumber, setPersonNumber] = useState<number | null>(null);
+    const [flightData, setFlightData] = useState<flightData | null>(null);
 
     return (
         <div>
             Landing Page!
-            <Form formChanges={useMemo(() => ({
-                setFlightType,
-                setFlightOrigin,
-                setFlightDestiny,
-                setFlightDate,
-                setPersonNumber
-            }), [])}/>
+            <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
             <DataView data={useMemo(() => ({
-                flightType,
-                flightOrigin,
-                flightDestiny,
-                flightDate,
-                personNumber
+                ...flightData
             }), [
-                flightType,
-                flightOrigin,
-                flightDestiny,
-                flightDate,
-                personNumber
+                flightData
             ])}/>
         </div>
     );
