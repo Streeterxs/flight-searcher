@@ -5,10 +5,14 @@ import { Navbar } from './Navbar';
 export const Layout = ({children}: Props<any>) => {
 
     return (
-        <div>
-            <Navbar/>
-            Layout!
-            {children}
+        <div className="container mx-auto">
+            <div className="w-full">
+                <Navbar/>
+                Layout!
+                <div>
+                    {children}
+                </div>
+            </div>
         </div>
     );
 };
