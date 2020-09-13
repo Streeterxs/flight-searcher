@@ -20,9 +20,11 @@ export const DataView = ({data}: DataViewProps) => {
     return (
         <div>
             Dataview!
-            {
-                JSON.stringify(data)
-            }
+            <pre>
+                {
+                    JSON.stringify(data, null, '   ')
+                }
+            </pre>
         </div>
     );
 };
