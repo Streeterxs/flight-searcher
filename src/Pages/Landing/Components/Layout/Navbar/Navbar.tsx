@@ -4,7 +4,7 @@ export const Navbar = () => {
 
     return (
 
-        <nav className="flex items-center justify-between flex-wrap border-b-2 p-6">
+        <nav className="flex items-center justify-between flex-wrap border-b-2 p-6 text-white">
 
             <div className="flex items-center flex-shrink-0 mr-6">
                 <svg

@@ -18,24 +18,28 @@ export const Landing = () => {
         <div>
             <Layout heroContent={
                 <>
-                    <div className="text-center">
-                        <h1 className="text-6xl text-white font-bold">
+                    <div className="text-center my-5">
+                        <h1 className="text-5xl text-white font-bold">
                             Viaje pelo mundo inteiro
                         </h1>
                         <h3 className="text-2xl text-teal-300 font-bold">
                             Aqui você encontra os melhores vôos do mundo
                         </h3>
                     </div>
-                    <div>
-                        <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
+                    <div className="relative h-32">
+                        <div className="bg-white rounded absolute top-0 overflow-hidden w-full">
+                            <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
+                        </div>
                     </div>
                 </>
             } bodyContent={
-                <DataView data={useMemo(() => ({
-                    ...flightData
-                }), [
-                    flightData
-                ])}/>
+                <div className="pt-10">
+                    <DataView data={useMemo(() => ({
+                        ...flightData
+                    }), [
+                        flightData
+                    ])}/>
+                </div>
             }/>
         </div>
     );
