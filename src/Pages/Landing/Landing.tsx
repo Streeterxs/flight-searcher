@@ -27,7 +27,7 @@ export const Landing = () => {
                         </h3>
                     </div>
                     <div className="relative h-32">
-                        <div className="bg-white rounded absolute top-0 overflow-hidden w-full">
+                        <div className="bg-white shadow-xl rounded absolute top-0 overflow-hidden w-full">
                             <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
                         </div>
                     </div>

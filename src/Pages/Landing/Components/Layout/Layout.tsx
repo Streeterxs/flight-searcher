@@ -13,7 +13,9 @@ export const Layout = ({heroContent, bodyContent}: landingLayout) => {
             <section className="bg-gradient-to-t from-gray-600 via-gray-500 to-gray-500 px-3">
                 <div className="container mx-auto">
 
-                    <Navbar/>
+                    <div className="w-full mb-10">
+                        <Navbar/>
+                    </div>
                     {heroContent}
                 </div>
             </section>

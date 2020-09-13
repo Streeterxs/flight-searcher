@@ -46,17 +46,25 @@ export const Form = ({
 
             <div className="p-5">
 
-                <fieldset id="group2" onChange={(event) => console.log('event: ', event.currentTarget.nodeValue)}>
+                <div id="group2" className="flex mb-2" onChange={(event) => console.log('event: ', event.currentTarget.nodeValue)}>
 
-                    <input type="radio" id="idavolta" value="value1" name="group2" className="border border-indigo-600"/>
-                    <label className="text-gray-800" htmlFor="idavolta">Ida e volta</label>
+                    <div className="mr-4">
 
-                    <input type="radio" id="ida" value="value2" name="group2"/>
-                    <label className="text-gray-800" htmlFor="ida">Ida</label>
+                        <input type="radio" id="idavolta" value="value1" name="group2" className="mr-1"/>
+                        <label className="text-gray-800" htmlFor="idavolta">Ida e volta</label>
+                    </div>
+                    <div className="mr-4">
+                        
+                        <input type="radio" id="ida" value="value2" name="group2" className="mr-1"/>
+                        <label className="text-gray-800" htmlFor="ida">Ida</label>
+                    </div>
+                    <div className="mr-4">
+                        
+                        <input type="radio" id="volta" value="value3" name="group2" className="mr-1"/>
+                        <label className="text-gray-800" htmlFor="volta">Volta</label>
+                    </div>
 
-                    <input type="radio" id="volta" value="value3" name="group2"/>
-                    <label className="text-gray-800" htmlFor="volta">Volta</label>
-                </fieldset>
+                </div>
 
                 <div className="flex flex-wrap">
                     <div className="w-full md:w-1/4 md:pr-4">
@@ -85,8 +93,8 @@ export const Form = ({
                 </div>
             </div>
 
-            <div className="flex items-center justify-end bg-gray-200 p-5">
-                <button onClick={formSubmit} className="text-white bg-indigo-500 p-2 rounded">Busque as Viagens</button>
+            <div className="flex items-center justify-end bg-gray-200 p-3">
+                <button onClick={formSubmit} className="text-white bg-indigo-500 py-2 px-4 rounded">Busque as Viagens</button>
             </div>
         </form>
     );
