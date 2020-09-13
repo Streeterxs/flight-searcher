@@ -19,7 +19,9 @@ export const Form = ({
     const [data, setData] = useState<string>('');
     const [pessoas, setPessoas] = useState<number>(0);
 
-    const formSubmit = () => {
+    const formSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
+        event.preventDefault();
 
         setFlightData({
             origem,
@@ -81,7 +83,7 @@ export const Form = ({
             </div>
 
             <div className="flex items-center justify-end">
-                <button onClick={useCallback(formSubmit, [formSubmit])}>Busque as Viagens</button>
+                <button onClick={formSubmit}>Busque as Viagens</button>
             </div>
         </form>
     );

@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useCallback } from 'react';
 
-import { Form } from './Components';
+import { Form, Layout } from './Components';
 import { DataView } from './Components';
+import { Navbar } from '../../Components/Layout';
 
 type flightData = {
     origem: string;
@@ -15,13 +16,27 @@ export const Landing = () => {
 
     return (
         <div>
-            Landing Page!
-            <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
-            <DataView data={useMemo(() => ({
-                ...flightData
-            }), [
-                flightData
-            ])}/>
+            <Layout heroContent={
+                <>
+                    <div className="text-center">
+                        <h1 className="text-6xl text-white font-bold">
+                            Viaje pelo mundo inteiro
+                        </h1>
+                        <h3 className="text-2xl text-teal-300 font-bold">
+                            Aqui você encontra os melhores vôos do mundo
+                        </h3>
+                    </div>
+                    <div>
+                        <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
+                    </div>
+                </>
+            } bodyContent={
+                <DataView data={useMemo(() => ({
+                    ...flightData
+                }), [
+                    flightData
+                ])}/>
+            }/>
         </div>
     );
 };

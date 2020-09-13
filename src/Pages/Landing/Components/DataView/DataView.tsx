@@ -20,7 +20,7 @@ export const DataView = ({data}: DataViewProps) => {
     return (
         <div>
             Dataview!
-            <pre>
+            <pre className="font-mono">
                 {
                     JSON.stringify(data, null, '   ')
                 }
