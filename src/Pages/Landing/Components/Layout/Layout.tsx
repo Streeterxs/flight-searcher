@@ -10,7 +10,7 @@ export const Layout = ({heroContent, bodyContent}: landingLayout) => {
 
     return (
         <div>
-            <section className="bg-gradient-to-t from-gray-600 via-gray-500 to-gray-500 px-3">
+            <section className="bg-gradient-to-t from-gray-600 via-gray-600 to-gray-500 px-3">
                 <div className="container mx-auto">
 
                     <div className="w-full mb-10">
