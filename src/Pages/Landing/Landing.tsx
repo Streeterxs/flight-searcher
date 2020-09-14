@@ -2,7 +2,6 @@ import React, { useState, useMemo, useCallback } from 'react';
 
 import { Form, Layout } from './Components';
 import { DataView } from './Components';
-import { Navbar } from '../../Components/Layout';
 import { flightTypes } from './flightTypes';
 
 type flightData = {

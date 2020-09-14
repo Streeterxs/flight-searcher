@@ -13,7 +13,7 @@ export const Navbar = () => {
 
         <nav className="flex items-center justify-between flex-wrap border-b-1 p-5 text-white">
 
-            <div className="flex items-center flex-shrink-0 mr-6">
+            <div className="flex items-center flex-shrink-0 mr-6 cursor-pointer">
                 <Logo className="w-12 h-12 mr-2"/>
                 <span className="text-base">Explore</span>
             </div>
@@ -27,20 +27,20 @@ export const Navbar = () => {
             <div className={`w-full ${openMenu ? 'block': 'hidden'} flex-grow lg:flex lg:items-center lg:w-auto`}>
                 <div className="text-sm lg:flex-grow">
 
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+                    <button className="block cursor-pointer mt-4 lg:inline-block lg:mt-0 mr-4">
                         Sobre Nós
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+                    </button>
+                    <button className="block cursor-pointer mt-4 lg:inline-block lg:mt-0 mr-4">
                         Seguros
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0">
+                    </button>
+                    <button className="block cursor-pointer mt-4 lg:inline-block lg:mt-0">
                         Hotéis
-                    </a>
+                    </button>
                 </div>
 
                 <div>
-                    <a href="#" className="inline-block text-sm px-4 py-2 mx-2 leading-none rounded hover:border-transparent mt-4 lg:mt-0">Viagens</a>
-                    <a href="#" className="inline-block text-sm px-4 p-3 leading-none border border-opacity-75 border-gray-400 rounded hover:border-transparent mt-4 lg:mt-0">Login</a>
+                    <button className="cursor-pointer inline-block text-sm px-4 py-2 mx-2 leading-none rounded hover:border-transparent mt-4 lg:mt-0">Viagens</button>
+                    <button className="cursor-pointer inline-block text-sm px-4 p-3 leading-none border border-opacity-75 border-gray-400 rounded hover:border-transparent mt-4 lg:mt-0">Login</button>
                 </div>
             </div>
         </nav>

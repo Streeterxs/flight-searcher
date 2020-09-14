@@ -39,7 +39,7 @@ export const Form = ({
         setFlightData({
             ...formValue
         });
-    }), [formValue]);
+    }), [formValue, setFlightData]);
 
     useEffect(() => {
 
@@ -65,7 +65,7 @@ export const Form = ({
                     <div id="group2" className="flex mb-2">
 
                         <div className="mr-4">
-                            <label className="inline-flex items-center">
+                            <label className="inline-flex items-center cursor-pointer">
                                 <input
                                 type="radio"
                                 defaultChecked
@@ -78,7 +78,7 @@ export const Form = ({
                         </div>
 
                         <div className="mr-4">
-                            <label className="inline-flex items-center">
+                            <label className="inline-flex items-center cursor-pointer">
                                 <input
                                 type="radio"
                                 className="form-radio mr-2"
@@ -90,7 +90,7 @@ export const Form = ({
                         </div>
 
                         <div className="mr-4">
-                            <label className="inline-flex items-center">
+                            <label className="inline-flex items-center cursor-pointer">
                                 <input
                                 type="radio"
                                 className="form-radio mr-2"
