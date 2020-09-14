@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 
 type DataViewProps = {
 
-    data: any
+    title: string;
+    data: any;
 };
-export const DataView = ({data}: DataViewProps) => {
+export const DataView = ({title, data}: DataViewProps) => {
 
 
     useEffect(() => {
@@ -18,12 +19,16 @@ export const DataView = ({data}: DataViewProps) => {
     }, [data]);
 
     return (
-        <div>
-            Dataview!
-            <pre className="font-mono">
-                {
-                    JSON.stringify(data, null, '   ')
-                }
+        <div className="p-4  mx-auto block overflow-x-auto h">
+            <pre className="font-mono flex h-full">
+                <span className="rounded bg-gray-200 p-4 w-190 mx-auto my-auto">
+                    <h1 className="font-normal">
+                        {title}
+                    </h1>
+                    {
+                        JSON.stringify(data, null, '   ')
+                    }
+                </span>
             </pre>
         </div>
     );
