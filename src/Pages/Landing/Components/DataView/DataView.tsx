@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 type DataViewProps = {
 
@@ -6,17 +6,6 @@ type DataViewProps = {
     data: any;
 };
 export const DataView = ({title, data}: DataViewProps) => {
-
-
-    useEffect(() => {
-
-        console.log('[DataView] Render');
-    });
-
-    useEffect(() => {
-
-        console.log('[DataView] Data Changed');
-    }, [data]);
 
     return (
         <div className="p-4  mx-auto block overflow-x-auto h">

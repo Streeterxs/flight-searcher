@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 
 import { flightTypes } from '../../flightTypes';
 import { useForm } from './useForm';
@@ -40,21 +40,6 @@ export const Form = ({
             ...formValue
         });
     }), [formValue, setFlightData]);
-
-    useEffect(() => {
-
-        console.log('[Form] Render');
-    });
-
-    useEffect(() => {
-
-        console.log('[Form] formChanges changed');
-    }, [setFlightData]);
-
-    useEffect(() => {
-
-        console.log('[Form] formSubmit changed');
-    }, [formSubmit]);
 
     return (
         <form className="w-full">
