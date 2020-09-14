@@ -28,15 +28,15 @@ export const Landing = () => {
                             Aqui você encontra os melhores vôos do mundo
                         </h3>
                     </div>
-                    <div className="relative h-32">
-                        <div className="bg-white shadow-xl rounded absolute top-0 overflow-hidden w-full">
+                    <div className="relative h-48">
+                        <div className="bg-white shadow-xl rounded top-0 overflow-hidden w-full">
                             <Form setFlightData={useCallback(setFlightData, [setFlightData])}/>
                         </div>
                     </div>
                 </>
             } bodyContent={
-                <div className="pt-10">
-                    <DataView data={useMemo(() => ({
+                <div className="pt-72 sm:pt-64 md:pt-16">
+                    <DataView title="VALOR DO FORM" data={useMemo(() => ({
                         ...flightData
                     }), [
                         flightData
