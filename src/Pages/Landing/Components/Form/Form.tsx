@@ -55,43 +55,46 @@ export const Form = ({
 
             <div className="p-5">
 
-                <div id="group2" className="flex mb-2">
+                <div className="overflow-x-auto">
+                    <div id="group2" className="flex mb-2">
 
-                    <div className="mr-4">
+                        <div className="mr-4">
+                            <label className="inline-flex items-center">
+                                <input
+                                type="radio"
+                                defaultChecked
+                                className="form-radio mr-2"
+                                name="group2"
+                                value={flightTypes.idaevolta}
+                                onChange={changeTipo}/>
+                                <span className="text-gray-800 whitespace-no-wrap">Ida e Volta</span>
+                            </label>
+                        </div>
 
-                        <input
-                            type="radio"
-                            id="idavolta"
-                            defaultChecked
-                            value={flightTypes.idaevolta}
-                            onChange={changeTipo}
-                            name="group2"
-                            className="mr-1"/>
-                        <label className="text-gray-800" htmlFor="idavolta">Ida e volta</label>
-                    </div>
-                    <div className="mr-4">
-                        
-                        <input
-                            type="radio"
-                            id="ida"
-                            value={flightTypes.ida}
-                            onChange={changeTipo}
-                            name="group2"
-                            className="mr-1"/>
-                        <label className="text-gray-800" htmlFor="ida">Ida</label>
-                    </div>
-                    <div className="mr-4">
-                        
-                        <input
-                            type="radio"
-                            id="volta"
-                            value={flightTypes.volta}
-                            onChange={changeTipo}
-                            name="group2"
-                            className="mr-1"/>
-                        <label className="text-gray-800" htmlFor="volta">Volta</label>
-                    </div>
+                        <div className="mr-4">
+                            <label className="inline-flex items-center">
+                                <input
+                                type="radio"
+                                className="form-radio mr-2"
+                                name="group2"
+                                value={flightTypes.ida}
+                                onChange={changeTipo}/>
+                                <span className="text-gray-800 whitespace-no-wrap">Ida</span>
+                            </label>
+                        </div>
 
+                        <div className="mr-4">
+                            <label className="inline-flex items-center">
+                                <input
+                                type="radio"
+                                className="form-radio mr-2"
+                                name="group2"
+                                value={flightTypes.volta}
+                                onChange={changeTipo}/>
+                                <span className="text-gray-800 whitespace-no-wrap">Volta</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="flex flex-wrap py-2">
