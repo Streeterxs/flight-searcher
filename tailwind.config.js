@@ -4,6 +4,19 @@ module.exports = {
     fontFamily: {
       body: ['Roboto']
     },
+
+    zIndex: {
+      '-10': '-10',
+      '10': 10,
+      '20': 20,
+      '30': 30,
+      '40': 40,
+      '50': 50,
+      '25': 25,
+      '50': 50,
+      '75': 75,
+      '100': 100,
+    },
     borderWidth: {
       default: '1px',
       '0': '0',
@@ -26,7 +39,10 @@ module.exports = {
         '156': '39rem',
         '178': '42rem',
         '190': '45rem',
-      }
+      },
+      backgroundImage: theme => ({
+        'tileset': "url('./assets/images/blockstileset.png')"
+      })
     },
   },
   variants: {},

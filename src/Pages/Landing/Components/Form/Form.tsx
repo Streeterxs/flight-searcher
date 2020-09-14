@@ -155,10 +155,13 @@ export const Form = ({
                             <div className="absolute flex items-center h-full top-0 left-0">
                                 <Person className="ml-3"/>
                             </div>
-                            <input
-                            onChange={changePessoas}
-                            className="form-input pl-10 mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400"
-                            placeholder="Insira a quantidade de pessoas"/>
+                            <select onChange={changePessoas} className="form-select pl-10 mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400">
+                                <option value="1" defaultChecked>1 pessoa</option>
+                                <option value="2">2 pessoas</option>
+                                <option value="3">3 pessoas</option>
+                                <option value="4">4 pessoas</option>
+                                <option value="5">5 pessoas</option>
+                            </select>
                         </div>
                     </label>
                 </div>

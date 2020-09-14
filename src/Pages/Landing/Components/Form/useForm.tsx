@@ -6,7 +6,7 @@ type useFormReturn = [
     (event: React.ChangeEvent<HTMLInputElement>) => void,
     (event: React.ChangeEvent<HTMLInputElement>) => void,
     (event: React.ChangeEvent<HTMLInputElement>) => void,
-    (event: React.ChangeEvent<HTMLInputElement>) => void,
+    (event: React.ChangeEvent<HTMLSelectElement>) => void,
     {
         tipo: flightTypes,
         origem: string,
@@ -22,7 +22,7 @@ export const useForm = (): useFormReturn => {
     const [origem, setOrigem] = useState<string>('');
     const [destino, setDestino] = useState<string>('');
     const [data, setData] = useState<string>('');
-    const [pessoas, setPessoas] = useState<number>(0);
+    const [pessoas, setPessoas] = useState<number>(1);
 
 
     const changeTipo = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +42,7 @@ export const useForm = (): useFormReturn => {
         setData(event.target.value);
     }, [setData]);
 
-    const changePessoas = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const changePessoas = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
         setPessoas(+event.target.value);
     }, [setPessoas]);
 
