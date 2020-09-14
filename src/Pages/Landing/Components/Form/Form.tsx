@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { flightTypes } from '../../flightTypes';
+import { useForm } from './useForm';
 
 type FormProps = {
     setFlightData: React.Dispatch<React.SetStateAction<formResult | null>>;
@@ -16,44 +17,23 @@ export const Form = ({
         setFlightData
     }: FormProps ) => {
 
-    const [tipo, setTipo] = useState<flightTypes>(flightTypes.idaevolta);
-    const [origem, setOrigem] = useState<string>('');
-    const [destino, setDestino] = useState<string>('');
-    const [data, setData] = useState<string>('');
-    const [pessoas, setPessoas] = useState<number>(0);
+    const [
+        changeTipo,
+        changeOrigem,
+        changeDestino,
+        changeData,
+        changePessoas,
+        formValue
+    ] = useForm();
 
-    const formSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const formSubmit = useCallback(((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 
         event.preventDefault();
 
         setFlightData({
-            tipo,
-            origem,
-            destino,
-            data,
-            pessoas
-        })
-    };
-
-    const changeTipo = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setTipo(+event.target.value);
-    }, []);
-
-    const changeOrigem = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setOrigem(event.target.value);
-    }, []);
-
-    const changeDestino = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setDestino(event.target.value);
-    }, []);
-
-    const changeData = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setData(event.target.value);
-    }, []);
-
-    const changePessoas = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setPessoas(+event.target.value);
-    }, []);
+            ...formValue
+        });
+    }), [formValue]);
 
     useEffect(() => {
 
@@ -64,6 +44,11 @@ export const Form = ({
 
         console.log('[Form] formChanges changed');
     }, [setFlightData]);
+
+    useEffect(() => {
+
+        console.log('[Form] formSubmit changed');
+    }, [formSubmit]);
 
     return (
         <form className="w-full">
@@ -109,30 +94,39 @@ export const Form = ({
 
                 </div>
 
-                <div className="flex flex-wrap">
-                    <div className="w-full md:w-1/4 md:pr-4">
+                <div className="flex flex-wrap py-2">
 
-                        <label className="w-full text-gray-700 text-sm" htmlFor="origem">Origem</label>
-                        <input onChange={changeOrigem} className="w-full rounded p-1 text-gray-800 bg-gray-100 border border-gray-400" type="text" id="origem"/>
-                    </div>
+                    <label className="w-full md:w-1/4 md:pr-4 block">
+                        <span className="text-gray-700 text-sm">Origem</span>
+                        <input
+                        onChange={changeOrigem}
+                        className="form-input mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400"
+                        placeholder="Jane Doe"/>
+                    </label>
 
-                    <div className="w-full md:w-1/4 md:pr-4">
+                    <label className="w-full md:w-1/4 md:pr-4 block">
+                        <span className="text-gray-700 text-sm">Destino</span>
+                        <input
+                        onChange={changeDestino}
+                        className="form-input mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400"
+                        placeholder="Jane Doe"/>
+                    </label>
 
-                        <label className="w-full text-gray-700 text-sm" htmlFor="destino">Destino</label>
-                        <input onChange={changeDestino} className="w-full rounded p-1 text-gray-800 bg-gray-100 border border-gray-400" type="text" id="destino"/>
-                    </div>
+                    <label className="w-full md:w-1/4 md:pr-4 block">
+                        <span className="text-gray-700 text-sm">Data de ida / Retorno</span>
+                        <input
+                        onChange={changeData}
+                        className="form-input mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400"
+                        placeholder="Jane Doe"/>
+                    </label>
 
-                    <div className="w-full md:w-1/4 md:pr-4">
-
-                        <label className="w-full text-gray-700 text-sm" htmlFor="data">Data de ida / Retorno</label>
-                        <input onChange={changeData} className="w-full rounded p-1 text-gray-800 bg-gray-100 border border-gray-400" type="text" id="data"/>
-                    </div>
-
-                    <div className="w-full md:w-1/4 md:pr-4">
-                        
-                        <label className="w-full text-gray-700 text-sm" htmlFor="pessoas">Número de Pessoas</label>
-                        <input onChange={changePessoas} className="w-full rounded p-1 text-gray-800 bg-gray-100 border border-gray-400" type="text" id="pessoas"/>
-                    </div>
+                    <label className="w-full md:w-1/4 md:pr-4 block">
+                        <span className="text-gray-700 text-sm">Número de Pessoas</span>
+                        <input
+                        onChange={changePessoas}
+                        className="form-input mt-1 block w-full text-gray-800 bg-gray-100 border border-gray-400"
+                        placeholder="Jane Doe"/>
+                    </label>
                 </div>
             </div>
 
